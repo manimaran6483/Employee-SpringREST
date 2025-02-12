@@ -5,7 +5,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity
+@Getter
+@Setter
 public class Employee {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -15,6 +20,17 @@ public class Employee {
 	private String gender;
 	private int salary;
 
+	public Employee() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Employee(String name, int age, int salary,String gender) {
+		super();
+		this.name = name;
+		this.age = age;
+		this.gender=gender;
+		this.salary = salary;
+	}
 	public int getId() {
 		return id;
 	}
@@ -33,28 +49,16 @@ public class Employee {
 	public void setAge(int age) {
 		this.age = age;
 	}
-	public int getSalary() {
-		return salary;
-	}
-	public void setSalary(int salary) {
-		this.salary = salary;
-	}
-	public Employee() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	public Employee(String name, int age, int salary,String gender) {
-		super();
-		this.name = name;
-		this.age = age;
-		this.gender=gender;
-		this.salary = salary;
-	}
 	public String getGender() {
 		return gender;
 	}
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	
+	public int getSalary() {
+		return salary;
+	}
+	public void setSalary(int salary) {
+		this.salary = salary;
+	}
 }

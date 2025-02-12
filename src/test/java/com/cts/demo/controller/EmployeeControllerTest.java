@@ -62,7 +62,7 @@ public class EmployeeControllerTest {
 	
 	@Test
 	public void testPostEmployee() throws Exception {
-		Employee emp = new Employee("Manimaran",1,23,"Male");
+		Employee emp = new Employee("Manimaran",24,25000,"Male");
 		when(empService.addEmployee(ArgumentMatchers.any())).thenReturn(emp);
 		
 		ObjectMapper mapper = new ObjectMapper();
@@ -79,4 +79,5 @@ public class EmployeeControllerTest {
 		assertEquals(200,response.getStatus()); 
 	}
 	
+        
 }
