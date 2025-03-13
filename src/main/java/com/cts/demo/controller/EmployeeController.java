@@ -27,27 +27,32 @@ public class EmployeeController {
 	}
 	@GetMapping("")
 	public List<Employee> getAllEmployees(@RequestHeader Map<String, String> headers){
+		printHeaders(headers);
 		return empService.getAllEmployees();
 	}
 	@GetMapping("/{id}")
 	public Employee getEmployeeById(@PathVariable int id, @RequestHeader Map<String, String> headers) {
+		printHeaders(headers);
 		return empService.getEmployeeById(id);
 	}
 	@PostMapping("")
 	public Employee addEmployee(@RequestBody Employee emp, @RequestHeader Map<String, String> headers) {
 		System.out.println("inside post add");
+		printHeaders(headers);
 		return empService.addEmployee(emp);
 	}
 	@DeleteMapping("/{id}")
 	public Employee deleteEmployee(@PathVariable int id, @RequestHeader Map<String, String> headers) {
+		printHeaders(headers);
 		return empService.deleteEmployee(id);
 	}
 	@PutMapping("/{id}")
 	public Employee updateEmployee(@PathVariable int id, @RequestBody Employee e, @RequestHeader Map<String, String> headers) {
+		printHeaders(headers);
 		return empService.updateEmployee(e);
 	}
 	
-	public void updateHeaders(Map<String, String> headers) {
+	public void printHeaders(Map<String, String> headers) {
 		headers.forEach((key, value) -> {
 	        System.out.printf("Header '%s' = %s%n", key, value);
 	    });
